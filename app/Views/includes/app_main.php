@@ -4,7 +4,7 @@
 <head>
     <!-- Required meta tags -->
 
-    <title>Regal Admin</title>
+    <title><?= $title ?></title>
     <?= $this->include('includes/style'); ?>
 </head>
 

@@ -30,7 +30,7 @@
         <li class="nav-item">
             <a class="nav-link" href="pages/forms/basic_elements.html">
                 <i class="icon-file menu-icon"></i>
-                <span class="menu-title">Data Stock</span>
+                <span class="menu-title">Inventory</span>
             </a>
         </li>
         <li class="nav-item">
@@ -42,7 +42,7 @@
             <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="#"> Product </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="#"> Category Product </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= route_to('categories') ?>"> Category Product </a></li>
                     <li class="nav-item"> <a class="nav-link" href="#"> User Setting </a></li>
                 </ul>
             </div>

@@ -15,3 +15,11 @@
 <link rel="stylesheet" href="/backend/css/style.css">
 <!-- endinject -->
 <link rel="shortcut icon" href="/backend/images/favicon.png" />
+
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+<style>
+    body {
+        font-family: 'Poppins';
+    }
+</style>
