@@ -15,3 +15,13 @@
 <!-- Custom js for this page-->
 <script src="/backend/js/dashboard.js"></script>
 <!-- End custom js for this page-->
+
+<script>
+    $(document).ready(function() {
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                $(this).remove();
+            });
+        }, 4000);
+    });
+</script>

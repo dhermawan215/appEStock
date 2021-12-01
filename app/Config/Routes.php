@@ -33,7 +33,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/products/', 'ProductController::index');
+
+//categories route
 $routes->get('/categories/', 'CategoryController::index', ['as' => 'categories']);
+$routes->get('/categories/input', 'CategoryController::create', ['as' => 'categoriesForm']);
+$routes->post('/categories/save', 'CategoryController::save');
 
 
 /*

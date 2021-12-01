@@ -8,15 +8,16 @@
                 <h4 class="font-weight-bold text-dark">Category Dashboard</h4>
             </div>
         </div>
+        <?= $this->include('includes/alert'); ?>
         <div class="row mt-2">
             <div class="col-lg-12 col-md-10 col-sm-6 stretch-card grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-title">Category Menu</div>
+                        <div class="card-title">Category Form Input</div>
                         <div class="row">
                             <div class="d-flex col-md-12 p-2 mx-2">
                                 <div class="col-md-3">
-                                    <a href="#" class="btn btn-info">Input Category</a>
+                                    <a href="<?= route_to('categoriesForm') ?>" class="btn btn-info">Input Category</a>
                                 </div>
                                 <div class="col-md-3">
                                     <a href="#" class="btn btn-info">Export PDF</a>
