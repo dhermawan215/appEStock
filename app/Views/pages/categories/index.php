@@ -49,19 +49,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Photoshop</td>
-                                        <td class="d-flex">
-                                            <a href="#" class="btn btn-warning btn-rounded mr-2">Edit</a>
-                                            <form action="#" method="POST" class="d-inline">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <button type="submit" class="btn btn-danger btn-rounded" onclick="return confirm('Apakah anda yakin ingin menghapus?')">
-                                                    Delete
-                                                </button>
-                                            </form>
-                                        </td>
-                                    </tr>
+                                    <?php $no = 1 ?>
+                                    <?php foreach ($data as $key => $value) : ?>
+                                        <tr>
+                                            <td><?= $no++ ?></td>
+                                            <td><?= $value['category_name'] ?></td>
+                                            <td class="d-flex">
+                                                <?php $id = bin2hex($encrypter->encrypt($value['id_category'])) ?>
+                                                <a href="/categories/edit/<?= $id ?>" class="btn btn-warning btn-rounded mr-2">Edit</a>
+                                                <!-- <button class="btn btn-warning btn-rounded mr-2" onclick="edit('<?= $value['id_category'] ?>')">Edit</button> -->
+                                                <form action="/categories/delete/<?= $value['id_category'] ?>" method="POST" class="d-inline">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit" class="btn btn-danger btn-rounded" onclick="return confirm('Apakah anda yakin ingin menghapus?')">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

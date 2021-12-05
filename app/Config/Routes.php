@@ -32,12 +32,15 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/products/', 'ProductController::index');
+$routes->get('/products', 'ProductController::index');
 
 //categories route
-$routes->get('/categories/', 'CategoryController::index', ['as' => 'categories']);
+$routes->get('/categories', 'CategoryController::index', ['as' => 'categories']);
 $routes->get('/categories/input', 'CategoryController::create', ['as' => 'categoriesForm']);
-$routes->post('/categories/save', 'CategoryController::save');
+$routes->get('/categories/edit/(:any)', 'CategoryController::edit/$1', ['as' => 'categories.edit']);
+$routes->post('/categories/save', 'CategoryController::save', ['as' => 'categories.data.save']);
+$routes->post('/categories/update/(:any)', 'CategoryController::update/$1', ['as' => 'categories.update.data']);
+$routes->delete('/categories/delete/(:num)', 'CategoryController::delete/$1', ['as' => 'categories.delete']);
 
 
 /*

@@ -25,6 +25,7 @@
     <!-- container-scroller -->
 
     <?= $this->include('includes/js'); ?>
+    <?= $this->renderSection('script'); ?>
 </body>
 
 </html>
