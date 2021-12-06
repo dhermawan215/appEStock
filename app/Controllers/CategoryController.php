@@ -75,8 +75,9 @@ class CategoryController extends BaseController
         return \view('pages/categories/formEdit', $data);
     }
 
-    public function update($id)
+    public function update()
     {
+        $id = $this->request->getPost('id_category');
         $encrypter = \Config\Services::encrypter($this->config);
         if (!$this->validate([
             'category_name' => [

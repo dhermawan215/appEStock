@@ -15,7 +15,7 @@
                 <div class="card mb-5">
                     <div class="card-body">
                         <h4 class="card-title">Form Input Categoris</h4>
-                        <form action="/categories/update/<?= $id ?>" method="POST" class="forms-sample">
+                        <form action="/categories/update" method="POST" class="forms-sample">
                             <?= csrf_field() ?>
                             <div class="form-group row mt-2">
                                 <input type="hidden" name="id_category" value="<?= $id ?>">

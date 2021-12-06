@@ -39,7 +39,7 @@ $routes->get('/categories', 'CategoryController::index', ['as' => 'categories'])
 $routes->get('/categories/input', 'CategoryController::create', ['as' => 'categoriesForm']);
 $routes->get('/categories/edit/(:any)', 'CategoryController::edit/$1', ['as' => 'categories.edit']);
 $routes->post('/categories/save', 'CategoryController::save', ['as' => 'categories.data.save']);
-$routes->post('/categories/update/(:any)', 'CategoryController::update/$1', ['as' => 'categories.update.data']);
+$routes->post('/categories/update', 'CategoryController::update', ['as' => 'categories.update.data']);
 $routes->delete('/categories/delete/(:num)', 'CategoryController::delete/$1', ['as' => 'categories.delete']);
 
 
