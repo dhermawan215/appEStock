@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\CategoryModel;
 use Config\Encryption;
+use Mpdf\Mpdf;
+use PDO;
 
 class CategoryController extends BaseController
 {
@@ -12,6 +14,7 @@ class CategoryController extends BaseController
     {
 
         $this->CategoryModel = new CategoryModel();
+        $this->mpdf = new \Mpdf\Mpdf();
         \session();
         $this->config    = new \Config\Encryption();
         $this->enkripsi = \Config\Services::encrypter($this->config);
@@ -102,5 +105,42 @@ class CategoryController extends BaseController
         $this->CategoryModel->delete($id);
         \session()->setFlashData('danger', 'data was deleted');
         return \redirect()->to(\route_to('categories'));
+    }
+
+    public function makePdf()
+    {
+        $data = ['content' => $this->CategoryModel->findAll()];
+
+        $this->mpdf->WriteHTML(\view('pages/categories/makePdf', $data));
+        $outputPdf = $this->mpdf->Output('categories-list-data-' .  date('Ymd') .  '.pdf', "D");
+        return $outputPdf;
+    }
+
+    public function makeXls()
+    {
+        $data = ['content' => $this->CategoryModel->findAll()];
+
+        return \view('pages/categories/makeXls', $data);
+    }
+
+    public function makeCsv()
+    {
+        $filename = 'categories-list' . date('Ymd') . '.csv';
+        header("Content-Description: File Transfer");
+        header("Content-Disposition: attachment; filename=$filename");
+        header("Content-Type: application/csv; ");
+
+        // get data 
+        $contentData = $this->CategoryModel->findAll();
+
+        $file = fopen('php://output', 'w');
+
+        $header = array("ID", "Category Name");
+        fputcsv($file, $header);
+        foreach ($contentData as $key => $line) {
+            fputcsv($file, $line);
+        }
+        fclose($file);
+        exit;
     }
 }

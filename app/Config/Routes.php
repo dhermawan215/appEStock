@@ -41,6 +41,9 @@ $routes->get('/categories/edit/(:any)', 'CategoryController::edit/$1', ['as' => 
 $routes->post('/categories/save', 'CategoryController::save', ['as' => 'categories.data.save']);
 $routes->post('/categories/update', 'CategoryController::update', ['as' => 'categories.update.data']);
 $routes->delete('/categories/delete/(:num)', 'CategoryController::delete/$1', ['as' => 'categories.delete']);
+$routes->get('/categories/makepdf', 'CategoryController::makePdf', ['as' => 'categories.pdf']);
+$routes->get('/categories/makecsv', 'CategoryController::makeCsv', ['as' => 'categories.csv']);
+$routes->get('/categories/makexls', 'CategoryController::makeXls', ['as' => 'categories.xls']);
 
 
 /*

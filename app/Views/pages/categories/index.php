@@ -20,13 +20,13 @@
                                     <a href="<?= route_to('categoriesForm') ?>" class="btn btn-info">Input Category</a>
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="#" class="btn btn-info">Export PDF</a>
+                                    <a href="<?= route_to('categories.pdf') ?>" class="btn btn-info">Export PDF</a>
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="#" class="btn btn-info">Export Excel</a>
+                                    <a href="<?= route_to('categories.xls') ?>" class="btn btn-info">Export Excel</a>
                                 </div>
                                 <div class="col-md-3">
-                                    <a href="#" class="btn btn-info">Export CSV</a>
+                                    <a href="<?= route_to('categories.csv') ?>" class="btn btn-info">Export CSV</a>
                                 </div>
                             </div>
                         </div>
