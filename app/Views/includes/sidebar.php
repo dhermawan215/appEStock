@@ -41,7 +41,7 @@
             </a>
             <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#"> Product </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= route_to('products') ?>"> Product </a></li>
                     <li class="nav-item"> <a class="nav-link" href="<?= route_to('categories') ?>"> Category Product </a></li>
                     <li class="nav-item"> <a class="nav-link" href="#"> User Setting </a></li>
                 </ul>

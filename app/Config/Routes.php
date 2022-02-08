@@ -32,7 +32,14 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/products', 'ProductController::index');
+
+$routes->group('products', function ($routes) {
+    $routes->get('/', 'ProductController::index', ['as' => 'products']);
+    $routes->get('input', 'ProductController::create', ['as' => 'products.form']);
+    $routes->post('save', 'ProductController::save', ['as' => 'products.save']);
+});
+
+
 
 //categories route
 $routes->get('/categories', 'CategoryController::index', ['as' => 'categories']);
